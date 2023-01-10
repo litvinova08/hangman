@@ -17,9 +17,8 @@ public class Hangman {
 					"----------" } };
 
 	public Hangman() {
-		this.hangman = hangman;
 	}
-	
+
 	public void printHangman(int attemptsCount) {
 		String[] partToPrint = hangman[attemptsCount];
 		for (int i = 0; i < partToPrint.length; i++) {

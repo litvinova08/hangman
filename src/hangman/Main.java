@@ -11,9 +11,6 @@ public class Main {
 		Dictionary dictionary = new Dictionary();
 		Hangman hangman = new Hangman();
 
-		// Intro
-		System.out.println("Let's play!");
-
 		System.out.println("Do you want to play with the computer (type 1) or on your own (type 2)?");
 
 		// scan user reply

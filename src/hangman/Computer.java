@@ -9,22 +9,19 @@ public class Computer {
 	Hangman hangman;
 
 	public void playWithComputer(Tracker tracker, Hangman hangman, Dictionary dictionary) {
-		
-		System.out.println("Playing with the computer");
 
-		// Scanner to collect user input
+		System.out.println("Playing with the computer");
 		Scanner scanner = new Scanner(System.in);
-		
+
 		// move = 1 is computer turn; move = 0 is user turn
 		int move = 0;
-		
-		// a while loop
+
 		while (tracker.attemptsCount < 7 && tracker.lettersRemained > 0) {
 
 			if (move == 0) {
-				System.out.println("Enter a letter or a word: ");
+				System.out.println("User, enter a letter or a word: ");
 				String userEntry = scanner.nextLine().toUpperCase();
-				play(userEntry, tracker, hangman);
+				play(userEntry, tracker, hangman, move);
 				move = 1;
 			}
 
@@ -33,25 +30,21 @@ public class Computer {
 				int computerGuessIndex = (int) (Math.random() * dictionary.alphabet.length);
 				String computerGuess = String.valueOf(dictionary.alphabet[computerGuessIndex]);
 				System.out.println("Computer guess..." + computerGuess);
-				play(computerGuess, tracker, hangman);
+				play(computerGuess, tracker, hangman, move);
 				move = 0;
 			}
 		}
-
-		// to close the scanner
 		scanner.close();
 	}
 
-	
-	public static void play(String entry, Tracker tracker, Hangman hangman) {
+	public static void play(String entry, Tracker tracker, Hangman hangman, int move) {
 		// check if userEntry contains any symbols other than letters
 		if (!entry.matches("[A-Z]+")) {
-			System.out.println("Please, enter valid input");
+			System.out.println("User, please, enter valid input");
 		} else {
 
 			// check if user entry is a word or a letter
 			if (entry.length() > 1) {
-				// when the user entered a word
 				tracker.compareWord(entry);
 
 				// the user entered one letter
@@ -63,11 +56,19 @@ public class Computer {
 
 					// the word does not have a user entry letter
 				} else {
-					hangman.printHangman(tracker.attemptsCount);
-					tracker.attemptsCount = tracker.attemptsCount + 1;
+					hangman.printHangman(tracker.attemptsCount); // hangmanCount
+					tracker.attemptsCount = tracker.attemptsCount + 1; // hangmanCount
+
+					if (move == 0) {
+						tracker.attemptsCountUser = tracker.attemptsCountUser + 1;
+						System.out.println("You have " + (7 - tracker.attemptsCountUser) + " attempts left " + " and "
+								+ tracker.lettersRemained + " letters to guess");
+					} else {
+						tracker.attemptsCountComputer = tracker.attemptsCountComputer + 1;
+						System.out.println("Computer " + (7 - tracker.attemptsCountComputer) + " attempts left "
+								+ " and " + tracker.lettersRemained + " letters to guess");
+					}
 				}
-				System.out.println("You have " + (7 - tracker.attemptsCount) + " attempts left "
-						+ " and you need to guess " + tracker.lettersRemained);
 				System.out.println(Arrays.toString(tracker.guessWordEmpty));
 			}
 		}

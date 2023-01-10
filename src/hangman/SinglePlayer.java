@@ -15,6 +15,7 @@ public class SinglePlayer {
 		// a while loop
 		while (tracker.attemptsCount < 7 && tracker.lettersRemained > 0) {
 
+		
 			System.out.println("Enter a letter or a word: ");
 			String userEntry = scanner.nextLine().toUpperCase();
 

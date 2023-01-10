@@ -9,8 +9,9 @@ public class Tracker {
 	String guessWord;
 	String[] guessWordEmpty;
 	int lettersRemained;
-	int attemptsCount = 0;
-//	int attemptsCountComputer = 0;
+	int attemptsCount = 0; 
+	int attemptsCountUser = 0;
+	int attemptsCountComputer = 0;
 
 	public Tracker(ArrayList<String> enteredLetters, String guessWord, String[] guessWordEmpty, int lettersRemained) {
 		this.enteredLetters = enteredLetters;
@@ -52,11 +53,16 @@ public class Tracker {
 
 	// to check if the user won or failed
 	public void checkAttemps() {
-		if (attemptsCount > 6 && lettersRemained > 0) {
-			System.out.println("You failed, sorry");
+		if (attemptsCountUser > 6 && lettersRemained > 0) {
+			System.out.println("User failed, sorry");
 
-		} else if (attemptsCount < 7 && lettersRemained == 0) {
-			System.out.println("You won!");
+		} else if (attemptsCountComputer > 6 && lettersRemained > 0) {
+			System.out.println("Computer failed, sorry");
+
+		} else if (attemptsCountUser < 7 && lettersRemained == 0) {
+			System.out.println("User won!");
+		} else if (attemptsCountComputer < 7 && lettersRemained == 0) {
+			System.out.println("Computer won!");
 		}
 	}
 }
