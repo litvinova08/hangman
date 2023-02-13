@@ -1,5 +1,7 @@
-# Mangman
+# Hangman
 ![Depfu](https://img.shields.io/depfu/litvinova08/hangman)![GitHub issues](https://img.shields.io/github/issues/litvinova08/hangman)
+
+![image](https://user-images.githubusercontent.com/37922356/218347465-39a67b8f-a4c7-475f-9b30-4e6231789333.png)
 
 ## Description of project (spec / MVP)
 this project aimed to recreate a version of the game Hangman to be played in a Java console application.
