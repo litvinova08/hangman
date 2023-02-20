@@ -54,19 +54,17 @@ public class Computer {
 
 					// the word does not have a user entry letter
 				} else {
-					Hangman.printHangman(tracker.attemptsCount); // hangmanCount
-					tracker.attemptsCount = tracker.attemptsCount + 1; // hangmanCount
+					Hangman.printHangman(tracker.attemptsCount);
+					tracker.attemptsCount = tracker.attemptsCount + 1;
 
 					if (move == 0) {
 						tracker.attemptsCountUser = tracker.attemptsCountUser + 1;
 						System.out.println("You have " + (7 - tracker.attemptsCountUser) + " attempts left " + " and "
 								+ tracker.lettersRemained + " letters to guess");
-//						tracker.attemptsCountUser = updateAttemptsCounter(tracker.attemptsCountUser, tracker);
 					} else {
 						tracker.attemptsCountComputer = tracker.attemptsCountComputer + 1;
 						System.out.println("Computer " + (7 - tracker.attemptsCountComputer) + " attempts left "
 								+ " and " + tracker.lettersRemained + " letters to guess");
-//						tracker.attemptsCountComputer = updateAttemptsCounter(tracker.attemptsCountComputer, tracker);
 					}
 				}
 				System.out.println(Arrays.toString(tracker.guessWordEmpty));
@@ -74,11 +72,4 @@ public class Computer {
 		}
 
 	}
-	
-//	public static int updateAttemptsCounter(int counter, Tracker tracker) {
-//		counter = counter + 1;
-//		System.out.println("You have " + (7 - counter) + " attempts left " + " and "
-//				+ tracker.lettersRemained + " letters to guess");	
-//		return counter;
-//	}
 }
