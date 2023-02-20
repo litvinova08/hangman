@@ -9,7 +9,7 @@ public class Tracker {
 	String guessWord;
 	String[] guessWordEmpty;
 	int lettersRemained;
-	int attemptsCount = 0; 
+	int attemptsCount = 0;
 	int attemptsCountUser = 0;
 	int attemptsCountComputer = 0;
 
@@ -20,22 +20,19 @@ public class Tracker {
 		this.lettersRemained = lettersRemained;
 	}
 
-	public void printGuessedLetters(String userEntry, Tracker tracker) {
+	public void trackGuessedLetters(String userEntry) {
 
 		// check if the user entered the letter previously
-		if (tracker.enteredLetters.contains(userEntry)) {
+		if (this.enteredLetters.contains(userEntry)) {
 			System.out.printf("You entered %s already. Please, enter another letter\n", userEntry);
 
-			// if the letter used the first time
 		} else {
-
-			// loop through a guess word to get an index of a user letter and replace an
-			// empty symbol so the user can see an outcome
-			for (int i = 0; i < tracker.guessWord.length(); i++) {
-				if (tracker.guessWord.charAt(i) == userEntry.charAt(0)) {
-					tracker.guessWordEmpty[i] = userEntry;
-					tracker.lettersRemained--;
-					tracker.enteredLetters.add(userEntry);
+			// empty space will be replaced with e guessed letter
+			for (int i = 0; i < this.guessWord.length(); i++) {
+				if (this.guessWord.charAt(i) == userEntry.charAt(0)) {
+					this.guessWordEmpty[i] = userEntry;
+					this.lettersRemained--;
+					this.enteredLetters.add(userEntry);
 				}
 			}
 		}

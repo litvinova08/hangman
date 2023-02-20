@@ -2,7 +2,7 @@ package hangman;
 
 public class Hangman {
 
-	public String[][] hangman = { { " ------", "|     |", "|", "|", "|", "|", "|", "|", "----------" },
+	public static String[][] hangman = { { " ------", "|     |", "|", "|", "|", "|", "|", "|", "----------" },
 			{ " ------", "|     |", "|     0", "|     +", "|", "|", "|", "|", "----------" },
 
 			{ " ------", "|     |", "|     0", "|    -+-", "|", "|", "|", "|", "----------" },
@@ -16,10 +16,7 @@ public class Hangman {
 			{ " ------", "|     |", "|     0", "|   /-+-/", "|     |", "|     |", "|    | |", "|    | |",
 					"----------" } };
 
-	public Hangman() {
-	}
-
-	public void printHangman(int attemptsCount) {
+	public static void printHangman(int attemptsCount) {
 		String[] partToPrint = hangman[attemptsCount];
 		for (int i = 0; i < partToPrint.length; i++) {
 			System.out.println(partToPrint[i]);
