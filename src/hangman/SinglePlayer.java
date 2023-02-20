@@ -17,20 +17,12 @@ public class SinglePlayer {
 			System.out.println("Enter a letter or guess a word: ");
 			String userEntry = scanner.nextLine().toUpperCase();
 
-			// check if userEntry contains any symbols other than letters
-//			if (!userEntry.matches("[A-Z]+")) {
-//				System.out.println("Please, enter valid input");
-//			} 
-			
-//			else {
 			if (validateInput(userEntry)){
 
 				// check if user entry is a word or a letter
 				if (userEntry.length() > 1) {
-					// when the user entered a word
 					tracker.compareWord(userEntry);
 
-					// the user entered one letter
 				} else {
 
 					// the word has a user entry letter
@@ -48,7 +40,6 @@ public class SinglePlayer {
 				}
 			}
 		}
-		// to close the scanner
 		scanner.close();
 	}
 
